@@ -1,0 +1,93 @@
+.header {
+    font-size: 50px;
+    margin-top: 0px;
+    margin-bottom: 0;
+    text-decoration: none;
+    color: black;
+
+}
+
+
+.navigation {
+    float: right;
+    padding: 15px;
+    text-align: right;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.navigation a {
+    padding-left: 25px;
+    color: gray;
+    text-decoration: none;
+}
+
+.navigation a:hover  {
+    color: dimgray;
+}
+
+.home {
+    float: left;
+    padding: 15px;
+    text-align: left;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.home a {
+    padding-left: 25px;
+    color: gray;
+    text-decoration: none;
+}
+
+.home a:hover {
+    color: dimgray;
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.check_button {
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+}
+
+.check_button:hover {
+    background-color: #555555;
+    color: white;
+}
+
+.book_button {
+    background-color: white;
+    color: black;
+    border: 2px solid #008CBA;
+}
+
+.book_button:hover {
+    background-color: #008CBA;
+    color: white;
+}
+
+.click_button:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+}
+.click_button {
+    border-radius: 3px;
+    background-color: #555555;
+    color: white;
+}
+
