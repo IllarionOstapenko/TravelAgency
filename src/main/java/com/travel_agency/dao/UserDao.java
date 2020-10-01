@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface UserDao {
 
+    User getUserById(int id);
+
     List<User> getAllUsers();
 
     User loadUserByUsername();

@@ -33,9 +33,9 @@ INSERT INTO travel_agency.room VALUES(12, 3, 4);
 INSERT INTO travel_agency.room VALUES(13, 1, 5);
 INSERT INTO travel_agency.room VALUES(14, 2, 5);
 INSERT INTO travel_agency.room VALUES(15, 3, 5);
-INSERT INTO travel_agency.room VALUES(17, 1, 6);
-INSERT INTO travel_agency.room VALUES(18, 2, 6);
-INSERT INTO travel_agency.room VALUES(19, 3, 6);
+INSERT INTO travel_agency.room VALUES(16, 1, 6);
+INSERT INTO travel_agency.room VALUES(17, 2, 6);
+INSERT INTO travel_agency.room VALUES(18, 3, 6);
 
 INSERT INTO travel_agency.room_book VALUES(1, '2020-10-06','2020-09-29',  1, 2);
 INSERT INTO travel_agency.room_book VALUES(2, '2019-08-01', '2019-07-03', 2, 1);
@@ -43,3 +43,5 @@ INSERT INTO travel_agency.room_book VALUES(3, '2019-09-15', '2019-06-24', 3, 4);
 
 INSERT INTO travel_agency.room_book_archive VALUES(1, '2019-03-25', '2019-01-23', 2, 1);
 INSERT INTO travel_agency.room_book_archive VALUES(2, '2019-02-15', '2019-01-10', 3, 2);
+
+INSERT INTO travel_agency.user_country VALUES (1,1);

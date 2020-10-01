@@ -17,7 +17,7 @@
 <div class="content">
     <h2>Hotels</h2>
 
-        <form action="/hotel" method="POST">
+        <form action="hotel" method="POST">
             <select name="id">
                 <c:forEach var="hotel" items="${hotels}">
                     <option value="${hotel.id}">${hotel.name}</option>

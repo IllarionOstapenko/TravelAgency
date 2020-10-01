@@ -1,30 +1,19 @@
 package com.travel_agency.controller;
 
-import com.travel_agency.service.HotelService;
-import com.travel_agency.service.UserService;
-import lombok.AllArgsConstructor;
-import lombok.NonNull;
-import org.omg.CORBA.Request;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-@AllArgsConstructor
 public class HomeController {
 
-    private UserService userService;
+//    @RequestMapping(value = "/home", method = RequestMethod.GET)
+//    public String homePage(ModelMap model) {
+//        return "home/home";
+//    }
 
-    private HotelService hotelService;
-
-
-    @RequestMapping(value = "/home", method = RequestMethod.GET)
-    public String homePage(ModelMap model) {
-//        List<User> clients = userService.getAllUsers();
-//        model.addAttribute("clients", clients);
-        return "home/home";
+    @GetMapping("/home")
+    public String homePage(){
+            return "home/home";
     }
 
 

@@ -11,9 +11,21 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class RoomServiceImpl  implements RoomService {
+public class RoomServiceImpl implements RoomService {
 
     private final RoomDao roomDao;
+
+    @Override
+    @Transactional
+    public void add(Room room) {
+        roomDao.add(room);
+    }
+
+    @Override
+    public List getRoomByHotelId(int id) {
+        return roomDao.getRoomByHotelId(id);
+    }
+
     @Override
     @Transactional
     public List<Room> getAvailableRoomsOnDateInHotel(String startDate, String endDate, int hotelId) {

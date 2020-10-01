@@ -23,6 +23,13 @@ public class HotelServiceImpl implements HotelService {
     private final RoomService roomService;
 
     @Override
+    public Object add(Hotel hotel) {
+        hotelDao.add(hotel);
+
+        return null;
+    }
+
+    @Override
     @Transactional
     public Hotel getById(int id) {
         return hotelDao.getById(id);

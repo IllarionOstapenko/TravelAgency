@@ -4,6 +4,7 @@ import com.travel_agency.entity.City;
 import com.travel_agency.entity.Country;
 import com.travel_agency.entity.Room;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
@@ -63,29 +64,5 @@ public class HotelDto {
         this.availableRooms = availableRooms;
     }
 
-    public HotelDto(
-            int hotelId,
-            String hotelName,
-            Country country,
-            City city,
-            String currentDate,
-            String maxDate,
-            String startDate,
-            String endDate,
-            int countOfClient,
-            int averageBookTime,
-            List<int[]> roomLoading) {
-        this.hotelId = hotelId;
-        this.hotelName = hotelName;
-        this.country = country;
-        this.city = city;
-        this.currentDate = currentDate;
-        this.maxDate = maxDate;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.countOfClient = countOfClient;
-        this.averageBookTime = averageBookTime;
-        this.roomLoading = roomLoading;
-    }
 }
 

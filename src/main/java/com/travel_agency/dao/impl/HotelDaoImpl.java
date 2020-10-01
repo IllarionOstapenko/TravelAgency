@@ -13,8 +13,15 @@ import java.util.List;
 @Repository
 @AllArgsConstructor
 public class HotelDaoImpl implements HotelDao {
-    private SessionFactory sessionFactory;
+    private final SessionFactory sessionFactory;
 
+
+    @Override
+    public void add(Hotel hotel) {
+        try (Session session = sessionFactory.openSession()) {
+            session.persist(hotel);
+        }
+    }
 
     @Override
     public Hotel getById(int id) {

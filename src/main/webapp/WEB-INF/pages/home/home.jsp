@@ -15,9 +15,9 @@
 <body>
 
 <div class="home">
-    <a href="/hotels">All Hotels</a>
-    <a href="/find_rooms">Find Rooms</a>
-    <a href="/book_hotel">Book Hotel</a>
+    <a href="hotels">All Hotels</a>
+    <a href="find_rooms">Find Rooms</a>
+    <a href="book_hotel">Book Hotel</a>
 </div>
 
 </body>

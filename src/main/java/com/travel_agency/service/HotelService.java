@@ -8,6 +8,8 @@ import java.util.List;
 
 public interface HotelService {
 
+    Object add(Hotel hotel);
+
     Hotel getById(int id);
 
     List<Hotel> getAll();

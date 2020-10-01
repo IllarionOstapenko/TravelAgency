@@ -28,7 +28,7 @@
             </div>
 
             <c:if test="${hotelDto.availableRooms == null}">
-                <form action="/hotel/available" method="POST">
+                <form action="hotel/available" method="POST">
                     <input type="hidden" name="id" value="${hotelDto.hotelId}"/>
 
                     <h3>Check rooms</h3>
@@ -60,16 +60,15 @@
 
             <c:if test="${hotelDto.availableRooms != null}">
                 <div>
-                    <form action="/hotel/book" method="POST">
-                        <input type="hidden" name="id" value="${hotelDto.hotelId}"/>
+                    <form action="hotel/book" method="POST">
+                        <input type="hidden" name="hotelId" value="${hotelDto.hotelId}"/>
 
                         <h3>Book rooms</h3>
                         <div>
                             <form <c:forEach var="room" items="${hotelDto.availableRooms}">>
-                                <input type="radio"  value="${room.number}"
-                                       name="number"/>${room.number}
+                                <input type="radio" value="${room.id}"
+                                       name="roomId"/>${room.number}
                             </form </c:forEach>>
-
                             <p>From: <input type="date" name="startDateAvailable"
                                             value=${hotelDto.currentDate} min= ${hotelDto.currentDate}
                                             max=${hotelDto.maxDate}>
@@ -82,6 +81,8 @@
                     </form>
                 </div>
             </c:if>
+
+
         </div>
     </div>
 </div>

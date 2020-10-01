@@ -20,9 +20,8 @@ public class CountryDaoImpl implements CountryDao {
     @Override
     public Country getById(int id) {
         try (Session session = sessionFactory.openSession()) {
-            Country country = session.get(Country.class, id);
 
-            return country;
+            return session.get(Country.class, id);
         }
     }
 
@@ -31,8 +30,7 @@ public class CountryDaoImpl implements CountryDao {
         try (Session session = sessionFactory.openSession()) {
             Country country = session.get(Country.class, id);
             Hibernate.initialize(country.getCities());
-            List<City> cities = country.getCities();
-            return cities;
+            return country.getCities();
         }
     }
 }
