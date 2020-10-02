@@ -4,7 +4,6 @@ import com.travel_agency.entity.City;
 import com.travel_agency.entity.Country;
 import com.travel_agency.entity.Room;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;

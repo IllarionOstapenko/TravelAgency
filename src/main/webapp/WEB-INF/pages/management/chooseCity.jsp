@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -7,18 +8,14 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/res/css/index.css"/>
 </head>
 <body>
-<div>
-    <form:form action="addHotelByCityId" method="post" modelAttribute="hotel">
-
-        <div>
-            <label>Hotel Name</label> <form:input path="name"/>
-        </div>
-        <div>
-            <input type="hidden" value="${city.id}" name="id">
-        </div>
-        <p><input type="submit" value="Add"></p>
-    </form:form>
-</div>
-
+<form action="chooseCity" method="get">
+    <h3>Choose city</h3>
+    <select name="id">
+        <c:forEach var="city" items="${cities}">
+            <option value="${city.id}">${city.name}</option>
+        </c:forEach>
+    </select>
+    <button type="submit">Chose</button>
+</form>
 </body>
 </html>

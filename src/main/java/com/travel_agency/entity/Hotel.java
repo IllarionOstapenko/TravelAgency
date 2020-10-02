@@ -1,8 +1,7 @@
 package com.travel_agency.entity;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,8 +17,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "hotel")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 public class Hotel {
     @Id

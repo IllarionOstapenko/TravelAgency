@@ -22,7 +22,14 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Override
-    public List getRoomByHotelId(int id) {
+    @Transactional
+    public Room getRoomById(int id) {
+        return roomDao.getRoomById(id);
+    }
+
+    @Override
+    @Transactional
+    public List<Room> getRoomsByHotelId(int id) {
         return roomDao.getRoomByHotelId(id);
     }
 
@@ -31,6 +38,5 @@ public class RoomServiceImpl implements RoomService {
     public List<Room> getAvailableRoomsOnDateInHotel(String startDate, String endDate, int hotelId) {
         return roomDao.getAvailableRoomsOnDateInHotel(startDate, endDate, hotelId);
     }
-
 
 }

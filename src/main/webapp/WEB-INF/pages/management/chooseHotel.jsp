@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Ilarion
-  Date: 10/1/2020
-  Time: 11:15 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -16,7 +9,7 @@
 <body>
 <div>
     <h3>Choose Hotel</h3>
-    <form action="addRoom" method="GET">
+    <form action="chooseHotel" method="GET">
         <select name="id">
             <c:forEach var="hotel" items="${hotels}">
                 <option value="${hotel.id}">${hotel.name}</option>

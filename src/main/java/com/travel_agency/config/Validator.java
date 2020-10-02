@@ -12,17 +12,6 @@ public class Validator {
         }
     }
 
-    public void validateDateForStatistic(String startDate, String endDate) {
-        if (isStartDateBiggerThanEndDate(startDate, endDate)) {
-            throw new RuntimeException(
-                    "End date ("
-                            + endDate
-                            + ")of statistics should be less than start date ("
-                            + startDate
-                            + ") !");
-        }
-    }
-
     public boolean isStartDateBiggerThanEndDate(String startDate, String endDate)
             throws RuntimeException {
         Date startDateD = null;
@@ -35,6 +24,7 @@ public class Validator {
             e.printStackTrace();
         }
 
+        assert startDateD != null;
         return startDateD.after(endDateD);
     }
 

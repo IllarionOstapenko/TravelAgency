@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Ilarion
-  Date: 9/29/2020
-  Time: 2:38 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -23,12 +16,10 @@
                 <p>Hotel Country: ${hotelDto.country.name}</p>
                 <p>Country Code: ${hotelDto.country.code}</p>
                 <p>Hotel City: ${hotelDto.city.name}</p>
-                <p>City Street Name: ${hotelDto.city.streetName}</p>
-                <p>City Street Number: ${hotelDto.city.streetNumber}</p>
             </div>
 
             <c:if test="${hotelDto.availableRooms == null}">
-                <form action="hotel/available" method="POST">
+                <form action="hotel/available" method="GET">
                     <input type="hidden" name="id" value="${hotelDto.hotelId}"/>
 
                     <h3>Check rooms</h3>
@@ -60,7 +51,7 @@
 
             <c:if test="${hotelDto.availableRooms != null}">
                 <div>
-                    <form action="hotel/book" method="POST">
+                    <form action="book" method="POST">
                         <input type="hidden" name="hotelId" value="${hotelDto.hotelId}"/>
 
                         <h3>Book rooms</h3>

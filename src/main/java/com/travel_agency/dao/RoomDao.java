@@ -7,11 +7,11 @@ import java.util.List;
 public interface RoomDao {
     void add(Room room);
 
-    List getRoomByHotelId(int id);
+    List<Room> getRoomByHotelId(int id);
 
-    Room getRoomByRoomNumber(int roomNumber);
+    Room getRoomById(int id);
+
 
     List<Room> getAvailableRoomsOnDateInHotel(String startDate, String endDate, int hotelId);
 
-//    int getRoomIdByHotelIdAndRoomNumber(int hotelId, int roomNumber);
 }

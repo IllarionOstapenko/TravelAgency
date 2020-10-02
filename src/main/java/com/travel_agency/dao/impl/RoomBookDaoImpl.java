@@ -16,7 +16,7 @@ public class RoomBookDaoImpl implements RoomBookDao {
     @Override
     public void add(RoomBook roomBook) {
         try (Session session = sessionFactory.openSession()) {
-            session.persist(roomBook);
+            session.save(roomBook);
         }
     }
 }

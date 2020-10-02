@@ -1,8 +1,5 @@
 package com.travel_agency.controller;
 
-import com.travel_agency.entity.Country;
-import com.travel_agency.entity.RoomBookArchive;
-import com.travel_agency.entity.User;
 import com.travel_agency.service.RoomBookArchiveService;
 import com.travel_agency.service.UserService;
 import lombok.AllArgsConstructor;
@@ -12,8 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Iterator;
-import java.util.List;
 
 @Controller
 @AllArgsConstructor

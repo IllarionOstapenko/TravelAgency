@@ -1,8 +1,10 @@
 package com.travel_agency.dao;
 
+import com.travel_agency.entity.RoomBookArchive;
+
 import java.util.List;
 
 public interface RoomBookArchiveDao {
 
-    List getRoomBookArchiveByUserId(int id);
+    List<RoomBookArchive> getRoomBookArchiveByUserId(int id);
 }

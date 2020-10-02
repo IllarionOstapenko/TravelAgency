@@ -1,7 +1,5 @@
 package com.travel_agency.controller;
 
-import com.travel_agency.dao.RoomDao;
-import com.travel_agency.entity.Hotel;
 import com.travel_agency.entity.Room;
 import com.travel_agency.service.HotelService;
 import com.travel_agency.service.RoomService;
@@ -13,7 +11,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -21,7 +18,6 @@ import java.util.List;
 public class RoomController {
     private final RoomService roomService;
     private final HotelService hotelService;
-    private final RoomDao roomDao;
 
 
     @GetMapping("/allHotels")
@@ -30,28 +26,28 @@ public class RoomController {
         return "management/chooseHotel";
     }
 
-    @GetMapping("/addRoom")
-    public String getHotelAndRoomById(HttpServletRequest request, Model model) {
+    @GetMapping("/chooseHotel")
+    public String getHotelAndRoomById(@RequestParam int id, Model model) {
         model.addAttribute("room", new Room());
-        model.addAttribute("hotels", hotelService.getAll());
-        model.addAttribute("id", request.getParameter("id"));
-        model.addAttribute("rooms", roomService.getRoomByHotelId(Integer.parseInt(request.getParameter("id"))));
+        model.addAttribute("id", id);
+        model.addAttribute("rooms", roomService.getRoomsByHotelId(id));
         return "management/addRoom";
     }
 
     @PostMapping("addRoomByHotelId")
     public String addRoomByHotelId(@RequestParam int id, @ModelAttribute Room room, Model model) {
-        roomService.add(room);
-        return "/";
-    }
+        final List<Room> roomsByHotelId = roomService.getRoomsByHotelId(id);
 
-    @GetMapping("/hotelById")
-    public String getHotelById(@RequestParam int id, Model model) {
-        final Hotel hotel = hotelService.getById(id);
-        model.addAttribute("hotel", hotelService.getById(id));
-        System.out.println(hotel.getId() + " " + hotel.getCity().getName() + " " + hotel.getName());
-        return "management/addRoom";
-    }
+        if (roomsByHotelId.stream().noneMatch(r -> r.getNumber() == room.getNumber())) {
+            room.setHotel(hotelService.getById(id));
+            roomService.add(room);
+            return "index";
+        } else {
+            model.addAttribute("msg", "Room already exist");
+            model.addAttribute("rm", "Add another room");
+            return "modules/error";
+        }
 
+    }
 
 }

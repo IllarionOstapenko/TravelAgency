@@ -5,7 +5,5 @@ import com.travel_agency.entity.RoomBookArchive;
 
 public interface RoomBookService {
 
-    Object add(RoomBook roomBook);
-
-
+    void add(RoomBook roomBook);
 }

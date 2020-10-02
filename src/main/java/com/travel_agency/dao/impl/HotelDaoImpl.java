@@ -2,7 +2,6 @@ package com.travel_agency.dao.impl;
 
 import com.travel_agency.dao.HotelDao;
 import com.travel_agency.entity.Hotel;
-import com.travel_agency.entity.RoomBook;
 import lombok.AllArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -13,13 +12,14 @@ import java.util.List;
 @Repository
 @AllArgsConstructor
 public class HotelDaoImpl implements HotelDao {
+
     private final SessionFactory sessionFactory;
 
 
     @Override
     public void add(Hotel hotel) {
         try (Session session = sessionFactory.openSession()) {
-            session.persist(hotel);
+            session.save(hotel);
         }
     }
 
@@ -40,7 +40,6 @@ public class HotelDaoImpl implements HotelDao {
     public List<Hotel> getAll() {
         try (Session session = sessionFactory.openSession()) {
             List<Hotel> hotels = session.createQuery("FROM Hotel", Hotel.class).list();
-
             if (hotels == null) {
                 throw new RuntimeException("Hotel not found");
             } else {
@@ -50,10 +49,13 @@ public class HotelDaoImpl implements HotelDao {
     }
 
     @Override
-    public Hotel bookRoomByHotelId(int hotelId, RoomBook roomBook) {
-
+    public List<Hotel> getHotelsByCityId(int id) {
         try (Session session = sessionFactory.openSession()) {
+            final List list = session.createQuery("from Hotel where city.id=?1")
+                    .setParameter(1, id).list();
+            if (list == null) {
+                throw new RuntimeException("There is no hotels");
+            } else return list;
         }
-        return null;
     }
 }

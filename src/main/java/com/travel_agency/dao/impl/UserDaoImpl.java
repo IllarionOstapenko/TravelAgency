@@ -22,6 +22,8 @@ public class UserDaoImpl implements UserDao {
         this.sessionFactory = sessionFactory;
     }
 
+
+
     @Override
     public User getUserById(int id) {
         try (Session session = sessionFactory.openSession()) {
@@ -43,9 +45,15 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public User loadUserByUsername() {
+    public User findUserByUsername(String username) {
         try (Session session = sessionFactory.openSession()) {
-            return (User) session.createQuery("from User where username = ?");
+            final Object user = session.createQuery("from User where username=?1")
+                    .setParameter(1, username).uniqueResult();
+            if (user == null) {
+                throw new RuntimeException("User not found");
+            } else return (User) user;
         }
     }
+
+
 }

@@ -23,29 +23,29 @@ public class RoomDaoImpl implements RoomDao {
     }
 
     @Override
-    public List getRoomByHotelId(int id) {
+    public List<Room> getRoomByHotelId(int id) {
         try (Session session = sessionFactory.openSession()) {
             final List room = session.createQuery("from Room where hotel.id=?1")
                     .setParameter(1, id).list();
             if (room == null) {
                 throw new RuntimeException("There in no room");
-            }else {
+            } else {
                 return room;
             }
         }
     }
 
     @Override
-    public Room getRoomByRoomNumber(int roomNumber) {
+    public Room getRoomById(int id) {
         try (Session session = sessionFactory.openSession()) {
-            final Object room = session.createQuery("FROM Room where number=?1").setParameter(1, roomNumber).uniqueResult();
+            final Object room = session.createQuery("from Room  where id=?1")
+                    .setParameter(1, id).uniqueResult();
             if (room == null) {
-                throw new RuntimeException("There is no room");
-            } else {
-                return (Room) room;
-            }
+                throw new RuntimeException("Room not found");
+            } else return (Room) room;
         }
     }
+
 
     @Override
     public List<Room> getAvailableRoomsOnDateInHotel(String startDate, String endDate, int hotelId) {
@@ -69,17 +69,5 @@ public class RoomDaoImpl implements RoomDao {
             }
         }
     }
-
-//    @Override
-//    public int getRoomIdByHotelIdAndRoomNumber(int hotelId, int roomNumber) {
-//        try (Session session = sessionFactory.openSession()) {
-//            Query<RoomBook> roomId = session.createQuery(
-//                    "SELECT * from Hotel h join h.rooms r left join r.roomBooks rb where"
-//                            + "(rb.room.number = ?1 and h.id = ?2)", RoomBook.class)
-//                    .setParameter(1, roomNumber)
-//                    .setParameter(2, hotelId);
-//        }
-//        return 0;
-//    }
 
 }

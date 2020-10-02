@@ -10,7 +10,7 @@ public interface UserDao {
 
     List<User> getAllUsers();
 
-    User loadUserByUsername();
+    User findUserByUsername(String username);
 
 
 }

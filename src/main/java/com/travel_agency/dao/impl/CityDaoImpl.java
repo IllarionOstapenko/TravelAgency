@@ -7,6 +7,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 @AllArgsConstructor
 public class CityDaoImpl implements CityDao {
@@ -20,9 +22,18 @@ public class CityDaoImpl implements CityDao {
                     .setParameter(1, id).uniqueResult();
             if (city == null) {
                 throw new RuntimeException("There is not city");
-            } else {
-                return (City) city;
-            }
+            } else return (City) city;
+
+        }
+    }
+
+    @Override
+    public List<City> getAll() {
+        try (Session session = sessionFactory.openSession()) {
+            final List<City> list = session.createQuery("from City", City.class).list();
+            if (list == null) {
+                throw new RuntimeException("There is no City");
+            } else return list;
         }
     }
 }

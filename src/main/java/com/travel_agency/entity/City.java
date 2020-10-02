@@ -4,7 +4,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,12 +28,6 @@ public class City {
 
     @Column(name = "city_name", nullable = false, length = 30)
     private String name;
-
-    @Column(name = "city_street_name", nullable = false, length = 30)
-    private String streetName;
-
-    @Column(name = "city_street_number", nullable = false, length = 5)
-    private int streetNumber;
 
     @ManyToOne
     @JoinColumn(name = "country_id", nullable = false)

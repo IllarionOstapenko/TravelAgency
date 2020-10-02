@@ -15,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 public class CountryDaoImpl implements CountryDao {
 
-    private SessionFactory sessionFactory;
+    private final SessionFactory sessionFactory;
 
     @Override
     public Country getById(int id) {
@@ -25,12 +25,4 @@ public class CountryDaoImpl implements CountryDao {
         }
     }
 
-    @Override
-    public List<City> getCitiesByCountryId(int id) {
-        try (Session session = sessionFactory.openSession()) {
-            Country country = session.get(Country.class, id);
-            Hibernate.initialize(country.getCities());
-            return country.getCities();
-        }
-    }
 }
