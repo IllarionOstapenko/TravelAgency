@@ -24,7 +24,6 @@ public class CityDaoImpl implements CityDao {
                 throw new RuntimeException("There is not city");
             }
             return (City) city;
-
         }
     }
 

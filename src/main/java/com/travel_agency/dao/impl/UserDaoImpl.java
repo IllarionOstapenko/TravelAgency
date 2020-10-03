@@ -1,21 +1,17 @@
 package com.travel_agency.dao.impl;
 
 import com.travel_agency.dao.UserDao;
-import com.travel_agency.dto.UserDto;
 import com.travel_agency.entity.User;
-import org.hibernate.IdentifierLoadAccess;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.Iterator;
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public class UserDaoImpl implements UserDao {
+
     private final SessionFactory sessionFactory;
 
     @Autowired
@@ -48,11 +44,12 @@ public class UserDaoImpl implements UserDao {
     public User findUserByUsername(String username) {
         try (Session session = sessionFactory.openSession()) {
             final Object user = session.createQuery("from User where username=?1")
-                    .setParameter(1, username).uniqueResult();
+                    .setParameter(1, username).getSingleResult();
             if (user == null) {
                 throw new RuntimeException("User not found");
             }
             return (User) user;
         }
     }
+
 }

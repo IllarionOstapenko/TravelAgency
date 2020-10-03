@@ -12,6 +12,5 @@
         <a href="/management">Management</a>
     </div>
 </header>
-
 </body>
 </html>

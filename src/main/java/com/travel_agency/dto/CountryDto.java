@@ -11,7 +11,9 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 public class CountryDto {
+
     private String name;
     private String code;
     private List<City> cities;
+
 }

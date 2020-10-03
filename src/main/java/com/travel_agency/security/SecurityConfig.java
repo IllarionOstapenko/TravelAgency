@@ -14,7 +14,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final UserService userDetailsService;
 
-
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService);
@@ -24,7 +23,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/login").permitAll()
-                .antMatchers("/**").hasRole("USER")
+//               here need set hasRole("MANAGEMENT") instead of permitAll(), but can't do it, because of security works wrong
+                .antMatchers("/management/**").permitAll()
                 .and()
                 .formLogin()
                 .loginPage("/login")

@@ -7,7 +7,6 @@
     <jsp:include page="../modules/header.jsp"/>
 </head>
 <body>
-
 <div>
     <div>
         <div>
@@ -17,11 +16,9 @@
                 <p>Country Code: ${hotelDto.country.code}</p>
                 <p>Hotel City: ${hotelDto.city.name}</p>
             </div>
-
             <c:if test="${hotelDto.availableRooms == null}">
                 <form action="hotel/available" method="GET">
                     <input type="hidden" name="id" value="${hotelDto.hotelId}"/>
-
                     <h3>Check rooms</h3>
                     <div>
                         <p>From: <input type="date" name="startDateAvailable"
@@ -35,7 +32,6 @@
                     </div>
                 </form>
             </c:if>
-
             <c:if test="${hotelDto.availableRooms != null}">
                 <div>
                     <hr>
@@ -47,8 +43,6 @@
                     </ul>
                 </div>
             </c:if>
-
-
             <c:if test="${hotelDto.availableRooms != null}">
                 <div>
                     <form action="book" method="POST">
@@ -72,8 +66,6 @@
                     </form>
                 </div>
             </c:if>
-
-
         </div>
     </div>
 </div>

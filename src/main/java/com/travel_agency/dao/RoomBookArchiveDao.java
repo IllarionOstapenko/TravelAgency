@@ -7,4 +7,5 @@ import java.util.List;
 public interface RoomBookArchiveDao {
 
     List<RoomBookArchive> getRoomBookArchiveByUserId(int id);
+
 }

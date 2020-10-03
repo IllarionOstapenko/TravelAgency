@@ -1,5 +1,6 @@
 package com.travel_agency.config;
 
+import lombok.AllArgsConstructor;
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -18,13 +19,10 @@ import java.util.Properties;
 @ComponentScan(basePackages = "com.travel_agency")
 @EnableTransactionManagement
 @PropertySource(value = "classpath:db.properties")
+@AllArgsConstructor
 public class HibernateConfig {
-    private Environment environment;
 
-    @Autowired
-    public void setEnvironment(Environment environment) {
-        this.environment = environment;
-    }
+    private final Environment environment;
 
     private Properties hibernateProperties() {
         Properties properties = new Properties();

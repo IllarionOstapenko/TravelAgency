@@ -14,5 +14,4 @@ public interface HotelDao {
 
     List<Hotel> getHotelsByCityId(int id);
 
-
 }

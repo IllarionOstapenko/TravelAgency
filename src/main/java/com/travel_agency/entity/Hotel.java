@@ -20,6 +20,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 public class Hotel {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

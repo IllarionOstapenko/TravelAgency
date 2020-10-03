@@ -8,6 +8,5 @@
 <body>
 <h2>404 - ${msg}</h2>
 <a href="/">${rm}</a>
-
 </body>
 </html>

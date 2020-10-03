@@ -15,7 +15,5 @@
     </select>
     <button type="submit" class="button click_button">Choose</button>
 </form>
-
-
 </body>
 </html>

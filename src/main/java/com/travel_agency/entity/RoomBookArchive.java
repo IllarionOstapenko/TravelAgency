@@ -20,6 +20,7 @@ import javax.persistence.Table;
 @Setter
 @NoArgsConstructor
 public class RoomBookArchive {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

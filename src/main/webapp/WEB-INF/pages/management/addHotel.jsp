@@ -9,7 +9,6 @@
 <body>
 <div>
     <form:form action="addHotelByCityId" method="post" modelAttribute="hotel">
-
         <div>
             <label>Hotel Name</label> <form:input path="name"/>
         </div>

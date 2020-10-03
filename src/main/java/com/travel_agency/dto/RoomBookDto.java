@@ -12,9 +12,11 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RoomBookDto {
+
     private int id;
     private String orderStart;
     private String orderEnd;
     private Room room;
     private User user;
+
 }

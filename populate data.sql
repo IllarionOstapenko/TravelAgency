@@ -1,5 +1,5 @@
-INSERT INTO travel_agency.user VALUES(1, 'Illarion', 'Ostapenko', 'password','larik');
-INSERT INTO travel_agency.user VALUES(2, 'Roman', 'Mudryk', 'password','romchuk');
+INSERT INTO travel_agency.user VALUES(1, 'Illarion', 'Ostapenko', 'password','ROLE_USER','larik');
+INSERT INTO travel_agency.user VALUES(2, 'Roman', 'Mudryk', 'password','ROLE_MANAGEMENT','romchuk');
 
 INSERT INTO travel_agency.country VALUES(1,'UA', 'Ukraine');
 INSERT INTO travel_agency.country VALUES(2, 'PL','Poland');
@@ -38,9 +38,9 @@ INSERT INTO travel_agency.room VALUES(17, 2, 6);
 INSERT INTO travel_agency.room VALUES(18, 3, 6);
 
 INSERT INTO travel_agency.room_book VALUES(1, '2020-10-06','2020-09-29',  1, 2);
-INSERT INTO travel_agency.room_book VALUES(2, '2019-08-01', '2019-07-03', 2, 1);
-INSERT INTO travel_agency.room_book VALUES(3, '2019-09-15', '2019-06-24', 3, 2);
+INSERT INTO travel_agency.room_book VALUES(2, '2019-07-21', '2019-08-03', 2, 1);
+INSERT INTO travel_agency.room_book VALUES(3, '2020-08-15', '2020-09-04', 7, 2);
 
-INSERT INTO travel_agency.room_book_archive VALUES(1, '2019-03-25', '2019-01-23', 2, 1);
-INSERT INTO travel_agency.room_book_archive VALUES(2, '2019-02-15', '2019-01-10', 6, 2);
+INSERT INTO travel_agency.room_book_archive VALUES(1, '2020-02-25', '2020-03-05', 2, 1);
+INSERT INTO travel_agency.room_book_archive VALUES(2, '2020-05-15', '2020-05-24', 6, 2);
 

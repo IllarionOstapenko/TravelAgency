@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/res/css/index.css"/>
 </head>
 <body>
-
 <div>
     <form:form action="addRoomByHotelId" method="post" modelAttribute="room">
         <div>
@@ -19,7 +18,5 @@
         <p><input type="submit" value="Add" class="button click_button"></p>
     </form:form>
 </div>
-
-
 </body>
 </html>

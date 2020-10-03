@@ -55,15 +55,16 @@ public class HotelController {
         model.addAttribute(
                 "hotelDto",
                 hotelService.getHotelDtoWithAvailabilityById(id, startDateAvailable, endDateAvailable));
-
         return "home/hotel";
     }
 
     @PostMapping("hotel/book")
-    public String bookRoomByHotelId(@RequestParam int roomId, String startDateAvailable, String endDateAvailable,
-                                    ModelMap model) {
+    public String bookRoomByHotelId(@RequestParam int roomId,
+                                    String startDateAvailable,
+                                    String endDateAvailable) {
         Validator.validateAvailableDate(startDateAvailable, endDateAvailable);
         final RoomBook roomBook = new RoomBook();
+//        set userID=1,because of security and can't get logIn userDetails to get Id which need to set
         roomBook.setUser(userService.getUserById(1));
         roomBook.setRoom(roomService.getRoomById(roomId));
         roomBook.setOrderStart(startDateAvailable);
@@ -93,12 +94,10 @@ public class HotelController {
             hotel.setCity(cityService.getById(id));
             hotelService.add(hotel);
             return "index";
-        } else {
-            model.addAttribute("msg", "Hotel with this name already exist in this City");
-            model.addAttribute("rm", "Add another Hotel");
-            return "modules/error";
         }
-
+        model.addAttribute("msg", "Hotel with this name already exist in this City");
+        model.addAttribute("rm", "Add another Hotel");
+        return "modules/error";
     }
 
 }

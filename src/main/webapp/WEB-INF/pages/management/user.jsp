@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/res/css/index.css"/>
 </head>
 <body>
-
 <div>
     <p>User first name: ${user.firstName}</p>
     <p>User last name: ${user.lastName}</p>
@@ -22,6 +21,5 @@
         </c:forEach>
     </div>
 </div>
-
 </body>
 </html>

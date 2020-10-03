@@ -10,12 +10,11 @@
 <c:if test="${not empty errorMessge}">
     <div style="color:red; font-weight: bold; margin: 30px 0px;">${errorMessge}</div>
 </c:if>
-
 <form name='login' action="login" method='POST'>
     <table>
         <tr>
             <td>UserName:</td>
-            <td><input type='text' name='username' value=''></td>
+            <td><input type='text' name='username'></td>
         </tr>
         <tr>
             <td>Password:</td>
@@ -27,7 +26,5 @@
     </table>
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 </form>
-
-
 </body>
 </html>

@@ -11,6 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 public class HotelDto {
+
     private int hotelId;
     private String hotelName;
     private Country country;

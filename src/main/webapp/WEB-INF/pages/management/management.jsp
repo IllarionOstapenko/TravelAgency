@@ -11,6 +11,5 @@
     <a href="allHotels">Add Room</a>
     <a href="allUsers">All Users</a>
 </div>
-
 </body>
 </html>

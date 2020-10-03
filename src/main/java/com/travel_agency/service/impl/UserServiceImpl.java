@@ -4,11 +4,7 @@ import com.travel_agency.dao.UserDao;
 import com.travel_agency.entity.User;
 import com.travel_agency.service.UserService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,22 +27,17 @@ public class UserServiceImpl implements UserService {
         return userDao.getUserById(id);
     }
 
-//    @Override
-//    @Transactional
-//    public User findByUsername(String username) {
-//        return userDao.findUserByUsername(username);
-//    }
-
-
-//        @Override
-//    @Transactional
-//    public String findByUsername(String username) {
-//        return SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
-//    }
-
     @Override
     @Transactional
     public User loadUserByUsername(String username) throws UsernameNotFoundException {
+        System.out.println(username);
+        final User user = userDao.findUserByUsername(username);
+        System.out.println(user.getUsername());
+        System.out.println(user.getPassword());
+        System.out.println(user.getFirstName());
+        System.out.println(user.getLastName());
         return userDao.findUserByUsername(username);
     }
+
+
 }

@@ -6,10 +6,8 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/res/css/index.css"/>
 </head>
 <body>
-
 <div class="home">
     <a href="hotels">All Hotels</a>
 </div>
-
 </body>
 </html>

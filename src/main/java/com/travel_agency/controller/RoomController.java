@@ -45,8 +45,6 @@ public class RoomController {
         model.addAttribute("msg", "Room already exist");
         model.addAttribute("rm", "Add another room");
         return "modules/error";
-
-
     }
 
 }

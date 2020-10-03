@@ -2,7 +2,6 @@ package com.travel_agency.dao.impl;
 
 import com.travel_agency.dao.HotelDao;
 import com.travel_agency.entity.Hotel;
-import com.travel_agency.entity.RoomBook;
 import lombok.AllArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -13,8 +12,8 @@ import java.util.List;
 @Repository
 @AllArgsConstructor
 public class HotelDaoImpl implements HotelDao {
-    private final SessionFactory sessionFactory;
 
+    private final SessionFactory sessionFactory;
 
     @Override
     public void add(Hotel hotel) {

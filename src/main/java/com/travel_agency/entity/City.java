@@ -22,6 +22,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 public class City {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
