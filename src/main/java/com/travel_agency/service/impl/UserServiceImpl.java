@@ -38,11 +38,11 @@ public class UserServiceImpl implements UserService {
 //    }
 
 
-        @Override
-    @Transactional
-    public String findByUsername(String username) {
-        return SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
-    }
+//        @Override
+//    @Transactional
+//    public String findByUsername(String username) {
+//        return SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
+//    }
 
     @Override
     @Transactional

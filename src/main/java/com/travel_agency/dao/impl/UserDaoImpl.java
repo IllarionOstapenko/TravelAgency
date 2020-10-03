@@ -47,7 +47,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User findUserByUsername(String username) {
         try (Session session = sessionFactory.openSession()) {
-            final Object user = session.createQuery("select username, password from User where username=?1")
+            final Object user = session.createQuery("from User where username=?1")
                     .setParameter(1, username).uniqueResult();
             if (user == null) {
                 throw new RuntimeException("User not found");
