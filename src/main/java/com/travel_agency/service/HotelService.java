@@ -19,5 +19,4 @@ public interface HotelService {
 
     HotelDto getHotelDtoWithAvailabilityById(int hotelId, String startDate, String endDate);
 
-
 }

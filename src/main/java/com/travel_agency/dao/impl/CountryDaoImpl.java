@@ -20,7 +20,6 @@ public class CountryDaoImpl implements CountryDao {
     @Override
     public Country getById(int id) {
         try (Session session = sessionFactory.openSession()) {
-
             return session.get(Country.class, id);
         }
     }

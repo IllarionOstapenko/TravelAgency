@@ -17,12 +17,11 @@ public class RoomBookArchiveDaoImpl implements RoomBookArchiveDao {
     @Override
     public List getRoomBookArchiveByUserId(int id) {
         try (Session session = sessionFactory.openSession()) {
-            final List list = session.createQuery("SELECT u FROM RoomBookArchive u where u.user.id =?1").setParameter(1, id).list();
+            final List list = session.createQuery("select u from RoomBookArchive u where u.user.id =?1").setParameter(1, id).list();
             if (list == null) {
                 throw new RuntimeException("There is no rooms");
-            } else {
-                return  list;
             }
+            return list;
         }
     }
 }

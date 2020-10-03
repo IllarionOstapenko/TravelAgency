@@ -17,7 +17,6 @@ public class UserController {
     private final UserService userService;
     private final RoomBookArchiveService roomBookArchiveService;
 
-
     @GetMapping("/allUsers")
     public String getAllUsers(HttpServletRequest request, Model model) {
         model.addAttribute("users", userService.getAllUsers());

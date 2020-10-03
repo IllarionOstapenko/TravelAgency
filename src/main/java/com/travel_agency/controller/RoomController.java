@@ -16,9 +16,9 @@ import java.util.List;
 @Controller
 @AllArgsConstructor
 public class RoomController {
+
     private final RoomService roomService;
     private final HotelService hotelService;
-
 
     @GetMapping("/allHotels")
     public String getAllHotels(Model model) {
@@ -37,16 +37,15 @@ public class RoomController {
     @PostMapping("addRoomByHotelId")
     public String addRoomByHotelId(@RequestParam int id, @ModelAttribute Room room, Model model) {
         final List<Room> roomsByHotelId = roomService.getRoomsByHotelId(id);
-
         if (roomsByHotelId.stream().noneMatch(r -> r.getNumber() == room.getNumber())) {
             room.setHotel(hotelService.getById(id));
             roomService.add(room);
             return "index";
-        } else {
-            model.addAttribute("msg", "Room already exist");
-            model.addAttribute("rm", "Add another room");
-            return "modules/error";
         }
+        model.addAttribute("msg", "Room already exist");
+        model.addAttribute("rm", "Add another room");
+        return "modules/error";
+
 
     }
 

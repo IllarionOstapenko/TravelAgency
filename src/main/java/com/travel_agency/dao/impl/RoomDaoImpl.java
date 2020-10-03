@@ -29,9 +29,9 @@ public class RoomDaoImpl implements RoomDao {
                     .setParameter(1, id).list();
             if (room == null) {
                 throw new RuntimeException("There in no room");
-            } else {
-                return room;
             }
+            return room;
+
         }
     }
 
@@ -42,7 +42,8 @@ public class RoomDaoImpl implements RoomDao {
                     .setParameter(1, id).uniqueResult();
             if (room == null) {
                 throw new RuntimeException("Room not found");
-            } else return (Room) room;
+            }
+            return (Room) room;
         }
     }
 
@@ -50,7 +51,6 @@ public class RoomDaoImpl implements RoomDao {
     @Override
     public List<Room> getAvailableRoomsOnDateInHotel(String startDate, String endDate, int hotelId) {
         try (Session session = sessionFactory.openSession()) {
-
             List<Room> rooms =
                     session
                             .createQuery(
@@ -64,10 +64,8 @@ public class RoomDaoImpl implements RoomDao {
                             .list();
             if (rooms == null) {
                 throw new RuntimeException("There is no rooms");
-            } else {
-                return rooms;
             }
+            return rooms;
         }
     }
-
 }

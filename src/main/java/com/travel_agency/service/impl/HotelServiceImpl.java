@@ -90,6 +90,4 @@ public class HotelServiceImpl implements HotelService {
                 endDate,
                 roomService.getAvailableRoomsOnDateInHotel(startDate, endDate, hotelId));
     }
-
-
 }

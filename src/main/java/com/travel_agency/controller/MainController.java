@@ -16,7 +16,6 @@ public class MainController {
 
     private final UserService userService;
 
-
     @GetMapping("/")
     public ModelAndView mainPage() {
         ModelAndView modelAndView = new ModelAndView();
@@ -46,10 +45,10 @@ public class MainController {
         return "login";
     }
 
-    @GetMapping("/user")
-    public String getUserByUsername(@RequestParam String username) {
-        final String byUsername = userService.findByUsername(username);
-        System.out.println(byUsername.toString());
-        return "";
-    }
+//    @GetMapping("/user")
+//    public String getUserByUsername(@RequestParam String username) {
+//        final String byUsername = userService.findByUsername(username);
+//        System.out.println(byUsername.toString());
+//        return "";
+//    }
 }

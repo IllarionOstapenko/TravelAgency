@@ -10,8 +10,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 @AllArgsConstructor
 public class RoomBookDaoImpl implements RoomBookDao {
-    private  final  SessionFactory sessionFactory;
 
+    private  final  SessionFactory sessionFactory;
 
     @Override
     public void add(RoomBook roomBook) {

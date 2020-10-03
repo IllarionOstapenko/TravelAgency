@@ -23,12 +23,12 @@ import java.util.List;
 @Controller
 @AllArgsConstructor
 public class HotelController {
+
     private final HotelService hotelService;
     private final CityService cityService;
     private final RoomService roomService;
     private final RoomBookService roomBookService;
     private final UserService userService;
-    private final Validator validator = new Validator();
 
     @GetMapping(value = "/hotels")
     public String getAllHotels(ModelMap model) {
@@ -51,7 +51,7 @@ public class HotelController {
     @GetMapping("/hotel/available")
     public String getHotelWithAvailability(
             @RequestParam int id, String startDateAvailable, String endDateAvailable, ModelMap model) {
-        validator.validateAvailableDate(startDateAvailable, endDateAvailable);
+        Validator.validateAvailableDate(startDateAvailable, endDateAvailable);
         model.addAttribute(
                 "hotelDto",
                 hotelService.getHotelDtoWithAvailabilityById(id, startDateAvailable, endDateAvailable));
@@ -62,7 +62,7 @@ public class HotelController {
     @PostMapping("hotel/book")
     public String bookRoomByHotelId(@RequestParam int roomId, String startDateAvailable, String endDateAvailable,
                                     ModelMap model) {
-        validator.validateAvailableDate(startDateAvailable, endDateAvailable);
+        Validator.validateAvailableDate(startDateAvailable, endDateAvailable);
         final RoomBook roomBook = new RoomBook();
         roomBook.setUser(userService.getUserById(1));
         roomBook.setRoom(roomService.getRoomById(roomId));

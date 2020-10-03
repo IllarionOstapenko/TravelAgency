@@ -12,16 +12,16 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class UserDaoImpl implements UserDao {
-    private SessionFactory sessionFactory;
+    private final SessionFactory sessionFactory;
 
     @Autowired
     public UserDaoImpl(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
-
 
 
     @Override
@@ -31,9 +31,9 @@ public class UserDaoImpl implements UserDao {
             final Object user = session.createQuery("from User u where u.id=?1 ").setParameter(1, id).uniqueResult();
             if (user == null) {
                 throw new RuntimeException("There is no rooms");
-            } else {
-                return (User) user;
             }
+            return (User) user;
+
         }
     }
 
@@ -47,13 +47,12 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User findUserByUsername(String username) {
         try (Session session = sessionFactory.openSession()) {
-            final Object user = session.createQuery("from User where username=?1")
+            final Object user = session.createQuery("select username, password from User where username=?1")
                     .setParameter(1, username).uniqueResult();
             if (user == null) {
                 throw new RuntimeException("User not found");
-            } else return (User) user;
+            }
+            return (User) user;
         }
     }
-
-
 }

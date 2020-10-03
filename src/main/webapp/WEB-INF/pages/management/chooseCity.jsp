@@ -15,7 +15,7 @@
             <option value="${city.id}">${city.name}</option>
         </c:forEach>
     </select>
-    <button type="submit">Chose</button>
+    <button type="submit" class="button click_button">Chose</button>
 </form>
 </body>
 </html>

@@ -22,7 +22,8 @@ public class CityDaoImpl implements CityDao {
                     .setParameter(1, id).uniqueResult();
             if (city == null) {
                 throw new RuntimeException("There is not city");
-            } else return (City) city;
+            }
+            return (City) city;
 
         }
     }
@@ -33,7 +34,8 @@ public class CityDaoImpl implements CityDao {
             final List<City> list = session.createQuery("from City", City.class).list();
             if (list == null) {
                 throw new RuntimeException("There is no City");
-            } else return list;
+            }
+            return list;
         }
     }
 }

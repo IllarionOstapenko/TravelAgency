@@ -6,6 +6,7 @@ import com.travel_agency.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -30,7 +31,14 @@ public class UserServiceImpl implements UserService {
         return userDao.getUserById(id);
     }
 
-    @Override
+//    @Override
+//    @Transactional
+//    public User findByUsername(String username) {
+//        return userDao.findUserByUsername(username);
+//    }
+
+
+        @Override
     @Transactional
     public String findByUsername(String username) {
         return SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();

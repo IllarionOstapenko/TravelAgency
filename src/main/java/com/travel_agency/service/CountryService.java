@@ -6,5 +6,4 @@ public interface CountryService {
 
     Country getById(int id);
 
-
 }

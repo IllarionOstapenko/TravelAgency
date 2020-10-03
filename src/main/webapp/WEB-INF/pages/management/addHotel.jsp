@@ -16,7 +16,7 @@
         <div>
             <input type="hidden" value="${city.id}" name="id">
         </div>
-        <p><input type="submit" value="Add"></p>
+        <p><input type="submit" value="Add" class="button book_button"></p>
     </form:form>
 </div>
 

@@ -9,4 +9,5 @@ public interface CityService {
     City getById(int id);
 
     List<City> getAll();
+
 }
